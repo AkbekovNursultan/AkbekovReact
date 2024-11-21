@@ -9,7 +9,7 @@ const positions = [
 function App() {
 
   const handleClick = () => {
-    setMessage("Вы нажали на кнопку");
+    setMessage("Должность повышена!");
   };
   const [message, setMessage] = useState("");
   
@@ -24,7 +24,7 @@ function App() {
         <p>Город: Бишкек</p>
         <p>Семейное положение: Не женат</p>
         {message && <p>{message}</p>}
-        <button onClick={handleClick}>Показать сообщение</button>
+        <button onClick={handleClick}>Повысить в должности</button>
       </div>
     </div>
   );
