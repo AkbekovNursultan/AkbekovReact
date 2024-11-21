@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+
 const positions = [
   "Java Junior Developer",
   "Java Middle Developer",
@@ -7,18 +8,32 @@ const positions = [
 ];
 
 function App() {
+  const [currentPosition, setCurrentPosition] = useState(positions[0]);
 
   const handleClick = () => {
-    setMessage("Должность повышена!");
+    const currentIndex = positions.indexOf(currentPosition);
+
+    if (currentIndex === positions.length - 1) {
+      setMessage("Куда выше?");
+      return;
+    }
+
+    setMessage("Поздравляю!");
+
+    const nextIndex = positions.indexOf(currentPosition) + 1;
+    if (nextIndex < positions.length) {
+      setCurrentPosition(positions[nextIndex]);
+    }
   };
+
   const [message, setMessage] = useState("");
-  
+
   return (
     <div className="App">
       <div className="profile">
         <h1>Информация о человеке</h1>
         <p>Имя: Нурсултан Акбеков</p>
-        <p>Должность: {positions[0]}</p>
+        <p>Должность: {currentPosition}</p>
         <p>Компания: Компания "Незнаю"</p>
         <p>Возраст: 19 лет</p>
         <p>Город: Бишкек</p>
