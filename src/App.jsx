@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./App.css";
 const positions = [
   "Java Junior Developer",
@@ -6,6 +7,11 @@ const positions = [
 ];
 
 function App() {
+
+  const handleClick = () => {
+    setMessage("Вы нажали на кнопку");
+  };
+  const [message, setMessage] = useState("");
   
   return (
     <div className="App">
@@ -17,6 +23,8 @@ function App() {
         <p>Возраст: 19 лет</p>
         <p>Город: Бишкек</p>
         <p>Семейное положение: Не женат</p>
+        {message && <p>{message}</p>}
+        <button onClick={handleClick}>Показать сообщение</button>
       </div>
     </div>
   );
